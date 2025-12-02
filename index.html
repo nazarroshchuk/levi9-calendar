@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
+    <title>Levi9 calendar</title>
+</head>
+<body>
+<main>
+    <section class="calendar">
+<!--        <div class="cell slide-left">-->
+<!--            <input id="c1" type="checkbox" class="toggle" />-->
+<!--            <input id="c1-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c1" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-1.jpg" alt="Day 1 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c1-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-1.jpg" alt="Фото для дня 1" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c1-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c1-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-1.jpg" alt="Фото для дня 1" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left">-->
+<!--            <input id="c2" type="checkbox" class="toggle" />-->
+<!--            <input id="c2-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c2" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-2.jpg" alt="Day 1 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c2-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-2.jpg" alt="Фото для дня 1" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c2-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c2-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-2.jpg" alt="Фото для дня 1" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left">-->
+<!--            <input id="c3" type="checkbox" class="toggle" />-->
+<!--            <input id="c3-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c3" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-3.jpg" alt="Day 1 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c3-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-3.jpg" alt="Фото для дня 1" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c3-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c3-modal" class="modal-close">&times;</label>-->
+<!--                    <div class="modal-photo-container">-->
+<!--                        <img class="modal-photo" src="assets/images/day-3.jpg" alt="Фото для дня 1" loading="lazy" />-->
+<!--                    </div>-->
+<!--                    <div class="modal-text">-->
+<!--                        <h2>3</h2>-->
+<!--                        <h4>Event headline</h4>-->
+<!--                        <p>Brief description or quote will go here</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left fourth-cell">-->
+<!--            <input id="c4" type="checkbox" class="toggle" />-->
+<!--            <input id="c4-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c4" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-4.jpg" alt="Day 1 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c4-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-4.jpg" alt="Фото для дня 1" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c4-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c4-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-4.jpg" alt="Фото для дня 1" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left">-->
+<!--            <input id="c5" type="checkbox" class="toggle" />-->
+<!--            <input id="c5-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c5" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-5.jpg" alt="Day 1 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c5-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-5.jpg" alt="Фото для дня 1" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c5-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c5-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-5.jpg" alt="Фото для дня 1" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left">-->
+<!--            <input id="c6" type="checkbox" class="toggle" />-->
+<!--            <input id="c6-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c6" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-6.jpg" alt="Day 1 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c6-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-6.jpg" alt="Фото для дня 1" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c6-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c6-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-6.jpg" alt="Фото для дня 1" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left">-->
+<!--            <input id="c7" type="checkbox" class="toggle" />-->
+<!--            <input id="c7-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c7" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-7.jpg" alt="Day 7 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c7-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-7.jpg" alt="Фото для дня 7" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c7-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c7-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-7.jpg" alt="Фото для дня 7" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left">-->
+<!--            <input id="c8" type="checkbox" class="toggle" />-->
+<!--            <input id="c8-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c8" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-8.jpg" alt="Day 8 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c8-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-8.jpg" alt="Фото для дня 8" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c8-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c8-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-8.jpg" alt="Фото для дня 8" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left">-->
+<!--            <input id="c9" type="checkbox" class="toggle" />-->
+<!--            <input id="c9-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c9" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-9.jpg" alt="Day 9 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c9-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-9.jpg" alt="Фото для дня 9" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c9-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c9-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-9.jpg" alt="Фото для дня 9" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left">-->
+<!--            <input id="c10" type="checkbox" class="toggle" />-->
+<!--            <input id="c10-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c10" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-10.jpg" alt="Day 10 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c10-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-10.jpg" alt="Фото для дня 10" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c10-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c10-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-10.jpg" alt="Фото для дня 10" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left">-->
+<!--            <input id="c11" type="checkbox" class="toggle" />-->
+<!--            <input id="c11-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c11" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-11.jpg" alt="Day 11 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c11-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-11.jpg" alt="Фото для дня 11" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c11-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c11-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-11.jpg" alt="Фото для дня 11" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left">-->
+<!--            <input id="c12" type="checkbox" class="toggle" />-->
+<!--            <input id="c12-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c12" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-12.jpg" alt="Day 12 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c12-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-12.jpg" alt="Фото для дня 12" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c12-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c12-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-12.jpg" alt="Фото для дня 12" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left thirteen-cell">-->
+<!--            <input id="c13" type="checkbox" class="toggle" />-->
+<!--            <input id="c13-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c13" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-13.jpg" alt="Day 13 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c13-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-13.jpg" alt="Фото для дня 13" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c13-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c13-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-13.jpg" alt="Фото для дня 13" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left">-->
+<!--            <input id="c14" type="checkbox" class="toggle" />-->
+<!--            <input id="c14-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c14" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-14.jpg" alt="Day 14 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c14-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-14.jpg" alt="Фото для дня 14" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c14-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c14-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-14.jpg" alt="Фото для дня 14" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left fifteen-cell">-->
+<!--            <input id="c15" type="checkbox" class="toggle" />-->
+<!--            <input id="c15-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c15" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-15.jpg" alt="Day 15 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c15-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-15.jpg" alt="Фото для дня 15" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c15-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c15-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-15.jpg" alt="Фото для дня 15" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left">-->
+<!--            <input id="c16" type="checkbox" class="toggle" />-->
+<!--            <input id="c16-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c16" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-16.jpg" alt="Day 16 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c16-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-16.jpg" alt="Фото для дня 16" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c16-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c16-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-16.jpg" alt="Фото для дня 16" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left">-->
+<!--            <input id="c17" type="checkbox" class="toggle" />-->
+<!--            <input id="c17-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c17" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-17.jpg" alt="Day 17 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c17-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-17.jpg" alt="Фото для дня 17" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c17-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c17-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-17.jpg" alt="Фото для дня 17" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left eighteen-cell">-->
+<!--            <input id="c18" type="checkbox" class="toggle" />-->
+<!--            <input id="c18-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c18" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-18.jpg" alt="Day 18 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c18-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-18.jpg" alt="Фото для дня 18" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c18-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c18-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-18.jpg" alt="Фото для дня 18" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left">-->
+<!--            <input id="c19" type="checkbox" class="toggle" />-->
+<!--            <input id="c19-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c19" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-19.jpg" alt="Day 19 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c19-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-19.jpg" alt="Фото для дня 19" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c19-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c19-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-19.jpg" alt="Фото для дня 19" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left twenty-cell">-->
+<!--            <input id="c20" type="checkbox" class="toggle" />-->
+<!--            <input id="c20-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c20" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-20.jpg" alt="Day 20 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c20-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-20.jpg" alt="Фото для дня 20" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c20-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c20-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-20.jpg" alt="Фото для дня 20" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left twenty-first-cell">-->
+<!--            <input id="c21" type="checkbox" class="toggle" />-->
+<!--            <input id="c21-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c21" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-21.jpg" alt="Day 21 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c21-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-21.jpg" alt="Фото для дня 21" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c21-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c21-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-21.jpg" alt="Фото для дня 21" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left twenty-two-cell">-->
+<!--            <input id="c22" type="checkbox" class="toggle" />-->
+<!--            <input id="c22-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c22" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-22.jpg" alt="Day 22 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c22-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-22.jpg" alt="Фото для дня 22" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c22-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c22-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-22.jpg" alt="Фото для дня 22" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left twenty-three-cell">-->
+<!--            <input id="c23" type="checkbox" class="toggle" />-->
+<!--            <input id="c23-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c23" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-23.jpg" alt="Day 23 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c23-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-23.jpg" alt="Фото для дня 23" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c23-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c23-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-23.jpg" alt="Фото для дня 23" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cell slide-left twenty-four-cell">-->
+<!--            <input id="c24" type="checkbox" class="toggle" />-->
+<!--            <input id="c24-modal" type="checkbox" class="modal-toggle" />-->
+<!--            &lt;!&ndash; Icon label (visible when unchecked) &ndash;&gt;-->
+<!--            <label for="c24" class="icon-wrap icon-label">-->
+<!--                <img class="icon" src="assets/tiles/day-24.jpg" alt="Day 24 icon" width="129" height="129">-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Image label (visible when checked) - opens modal when clicked &ndash;&gt;-->
+<!--            <label for="c24-modal" class="photo-wrap photo-label">-->
+<!--                <img class="photo" src="assets/images/day-24.jpg" alt="Фото для дня 24" loading="lazy" />-->
+<!--            </label>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal">-->
+<!--                <label for="c24-modal" class="modal-backdrop"></label>-->
+<!--                <div class="modal-content">-->
+<!--                    <label for="c24-modal" class="modal-close">&times;</label>-->
+<!--                    <img class="modal-photo" src="assets/images/day-24.jpg" alt="Фото для дня 24" loading="lazy" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="holidays">
+            <img src="assets/images/text.png" alt="Holidays" class="holidays-img">
+        </div>
+    </section>
+</main>
+<script src="script.js" async></script>
+</body>
+</html>

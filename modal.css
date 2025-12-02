@@ -1,0 +1,147 @@
+/* Modal styles - added without changing existing functionality */
+.modal-toggle {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* Show modal when modal-toggle is checked */
+.modal-toggle:checked ~ .modal {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+.modal-backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.modal-content {
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    max-width: 60vw;
+    max-height: 50vh;
+    background: white;
+    overflow: hidden;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    aspect-ratio: 2/1;
+}
+
+.modal-photo-container {
+    aspect-ratio: 1/1;
+    position: relative;
+    flex-shrink: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+/* Aspect ratio variations */
+.modal-photo-container.ratio-1-1 {
+    aspect-ratio: 1/1;
+}
+
+.modal-photo-container.ratio-2-1 {
+    aspect-ratio: 2/1;
+}
+
+.modal-photo-container.ratio-3-2 {
+    aspect-ratio: 3/2;
+}
+
+.modal-photo-container.ratio-2-3 {
+    aspect-ratio: 2/3;
+}
+
+.modal-photo-container.ratio-16-9 {
+    aspect-ratio: 16/9;
+}
+
+.modal-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.modal-text {
+    padding: 56px;
+    flex-basis: auto;
+}
+
+.modal-text h2 {
+    margin-top: 0;
+    margin-bottom: 50px;
+    font-size: 56px;
+    color: var(--text-blue);
+    font-family: Geologica, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.modal-text h4 {
+    font-weight: 700;
+    font-family: Geologica, sans-serif;
+    font-size: 30px;
+    color: var(--text-black);
+}
+
+.modal-text p {
+    font-family: "DM Sans", sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.modal-toggle:checked ~ .modal .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 28px;
+    color: var(--background);
+    cursor: pointer;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.modal-close:hover {
+    color: calc(var(--background) - 20%);
+}
