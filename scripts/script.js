@@ -1,5 +1,6 @@
-function createCell(dayNumber, additionalClass = '', aspectRatio) {
+function createCell(dayNumber, additionalClass = '') {
     const cellClass = additionalClass ? `cell slide-left ${additionalClass}` : 'cell slide-left';
+    const modalImageName = dayNumber === 4 || dayNumber === 18 ? `frame-${dayNumber}.png` : `day-${dayNumber}.jpg`;
 
     return `
         <div class="${cellClass}">
@@ -18,8 +19,8 @@ function createCell(dayNumber, additionalClass = '', aspectRatio) {
               <label for="c${dayNumber}-modal" class="modal-backdrop"></label>
                 <div class="modal-content">
                     <label for="c${dayNumber}-modal" class="modal-close">&times;</label>
-                    <div class="modal-photo-container ratio-${aspectRatio}">
-                        <img class="modal-photo" src="assets/images/day-${dayNumber}.jpg" alt="Фото для дня 1" loading="lazy" />
+                    <div class="modal-photo-container">
+                        <img class="modal-photo" src="assets/images/${modalImageName}" alt="Фото для дня 1" loading="lazy" />
                     </div>
                     <div class="modal-text">
                         <h2>${dayNumber}</h2>
@@ -31,12 +32,6 @@ function createCell(dayNumber, additionalClass = '', aspectRatio) {
         </div>
     `;
 }
-
-const aspectRatios = {
-    4: '2-1',
-    18: '2-1',
-    // Define ratios for each day
-};
 
 // Generate all 24 cells
 const calendar = document.querySelector('.holidays');
@@ -54,7 +49,6 @@ const specialClasses = {
 
 for (let i = 1; i <= 24; i++) {
     const additionalClass = specialClasses[i] || '';
-    const aspectRatio = aspectRatios[i] || '1-1';
-    calendar.insertAdjacentHTML('beforebegin', createCell(i, additionalClass, aspectRatio));
+    calendar.insertAdjacentHTML('beforebegin', createCell(i, additionalClass));
 }
 
