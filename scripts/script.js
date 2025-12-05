@@ -3,6 +3,35 @@ function createCell(dayNumber, additionalClass = '') {
     const modalImageName = dayNumber === 4 || dayNumber === 18 ? `frame-${dayNumber}.png` : `day-${dayNumber}.jpg`;
     const dayContent = dayContentMap[dayNumber];
 
+    const modalText = `
+                <div class="modal">
+                    <label for="c${dayNumber}-modal" class="modal-backdrop"></label>
+                    <div class="modal-content">
+                        <label for="c${dayNumber}-modal" class="modal-close">&times;</label>
+                        <div class="modal-photo-container">
+                            <img class="modal-photo" src="assets/images/${modalImageName}" alt="Фото для дня ${dayNumber}" loading="lazy" />
+                        </div>
+                        <div class="modal-text">
+                            <h2>${dayNumber}</h2>
+                            <h4>${dayContent.title}</h4>
+                        <p>${dayContent.description}</p>
+                    </div>
+                    </div>
+            </div>
+                `;
+
+    const modalPhoto = `
+                <div class="modal">
+                    <label for="c${dayNumber}-modal" class="modal-backdrop"></label>
+                    <div class="modal-content photo-only">
+                        <label for="c${dayNumber}-modal" class="modal-close">&times;</label>
+                        <div class="modal-photo-container">
+                            <img class="modal-photo" src="assets/images/${modalImageName}" alt="Фото для дня ${dayNumber}" loading="lazy" />
+                        </div> 
+                    </div>
+                </div>
+                        `;
+
     return `
         <div class="${cellClass}">
             <input id="c${dayNumber}" type="checkbox" class="toggle" />
@@ -16,20 +45,7 @@ function createCell(dayNumber, additionalClass = '') {
                 <img class="photo" src="assets/images/day-${dayNumber}.jpg" alt="Фото для дня ${dayNumber}" loading="lazy" />
             </label>
             <!-- Modal -->
-            <div class="modal">
-              <label for="c${dayNumber}-modal" class="modal-backdrop"></label>
-                <div class="modal-content">
-                    <label for="c${dayNumber}-modal" class="modal-close">&times;</label>
-                    <div class="modal-photo-container">
-                        <img class="modal-photo" src="assets/images/${modalImageName}" alt="Фото для дня ${dayNumber}" loading="lazy" />
-                    </div>
-                    <div class="modal-text">
-                        <h2>${dayNumber}</h2>
-                        <h4>${dayContent.title}</h4>
-                        <p>${dayContent.description}</p>
-                    </div>
-                </div>
-            </div>
+            ${modalPhoto}
         </div>
     `;
 }

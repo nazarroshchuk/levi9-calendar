@@ -52,6 +52,12 @@
     aspect-ratio: 2/1;
 }
 
+.modal-content.photo-only {
+    max-width: 60vh;
+    max-height: 60vh;
+    aspect-ratio: 1/1;
+}
+
 .modal-photo-container {
     aspect-ratio: 1/1;
     position: relative;
@@ -61,27 +67,6 @@
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
-}
-
-/* Aspect ratio variations */
-.modal-photo-container.ratio-1-1 {
-    aspect-ratio: 1/1;
-}
-
-.modal-photo-container.ratio-2-1 {
-    aspect-ratio: 2/1;
-}
-
-.modal-photo-container.ratio-3-2 {
-    aspect-ratio: 3/2;
-}
-
-.modal-photo-container.ratio-2-3 {
-    aspect-ratio: 2/3;
-}
-
-.modal-photo-container.ratio-16-9 {
-    aspect-ratio: 16/9;
 }
 
 .modal-photo {
