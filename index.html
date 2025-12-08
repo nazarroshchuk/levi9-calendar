@@ -361,11 +361,7 @@
         .cell:nth-child(4) {
             grid-column: span 1 !important;
         }
-
-        .cell:nth-child(4) .icon {
-            content: url('assets/tiles/square-day-4.jpg') !important;
-        }
-
+        
         .cell:nth-child(13) {
             grid-row: 4 / span 2 !important;
             grid-column: 1 !important;
@@ -514,6 +510,24 @@
         calendar.insertAdjacentHTML('beforebegin', createCell(i, additionalClass));
     }
 
+    // Handle responsive image switching for day 4
+    function updateDay4Image() {
+        const day4Icon = document.querySelector('.cell:nth-child(4) .icon');
+        if (day4Icon) {
+            if (window.innerWidth <= 1024) {
+                day4Icon.src = 'assets/tiles/square-day-4.jpg';
+            } else {
+                day4Icon.src = 'assets/tiles/day-4.jpg';
+            }
+        }
+    }
+
+    // Update on load and resize
+    window.addEventListener('load', updateDay4Image);
+    window.addEventListener('resize', updateDay4Image);
+
+    // Also update immediately in case the DOM is already ready
+    updateDay4Image();
 </script>
 </body>
 </html>
