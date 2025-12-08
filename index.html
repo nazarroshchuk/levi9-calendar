@@ -246,13 +246,8 @@
 
     .modal-content {
         height: 100%;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        position: relative;
         width: 100%;
-        max-width: 65vw;
-        max-height: 60vh;
+        position: relative;
         background: white;
         overflow: hidden;
         transform: scale(0.8);
@@ -261,8 +256,8 @@
     }
 
     .modal-content.photo-only {
-        max-width: 60vh;
-        max-height: 60vh;
+        max-width: 70vh;
+        max-height: 70vh;
         aspect-ratio: 1/1;
     }
 
@@ -513,7 +508,7 @@
             height: 101%;
         }
 
-        .modal-content {
+        .modal-content.photo-only {
             max-width: 70vw;
             max-height: 70vw;
         }
