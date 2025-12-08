@@ -359,10 +359,6 @@
             grid-template-rows: repeat(8, minmax(var(--cell-size), 1fr))!important;!important ;
         }
 
-        .cell {
-
-        }
-
         .cell:nth-child(4) {
             grid-column: span 1!important;
         }
@@ -452,7 +448,7 @@
     /* Responsive image for day 4 - switch to square image on mobile */
     @media (max-width: 1023px) {
         .cell:nth-child(4) .icon {
-            content: url('assets/tiles/square-day-4.jpg');
+            content: url('assets/tiles/square-day-4.jpg')!important;
         }
     }
 </style>
