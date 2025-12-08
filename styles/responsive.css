@@ -1,0 +1,107 @@
+
+@media (max-width: 1024px) {
+    :root {
+        --cell-size: 92px!important;
+    }
+
+    .calendar {
+        display: grid;
+        gap: var(--gap);
+        margin: auto auto;
+        padding: 0 10px;
+    }
+
+    .calendar {
+        grid-template-columns: repeat(4, minmax(var(--cell-size), 1fr))!important;
+        grid-template-rows: repeat(8, minmax(var(--cell-size), 1fr))!important;!important ;
+    }
+
+    .cell {
+
+    }
+
+    .cell:nth-child(4) {
+        grid-column: span 1!important;
+    }
+
+    .cell:nth-child(13) {
+        grid-row: 4 / span 2!important;
+        grid-column: 1!important;
+    }
+
+    .cell:nth-child(14) {
+        grid-column: 2!important;
+        grid-row: 4!important;
+    }
+
+    .cell:nth-child(15) {
+        grid-column: 2!important;
+        grid-row: 5!important;
+    }
+
+    .cell:nth-child(16) {
+        grid-column: 3!important;
+        grid-row: 4!important;
+    }
+
+    .cell:nth-child(17) {
+        grid-column: 4!important;
+        grid-row: 4!important;
+    }
+
+    .cell:nth-child(18) {
+        grid-column: 3 / span 2!important;
+        grid-row: 5!important;
+    }
+
+    .cell:nth-child(19) {
+        grid-column: 1!important;
+        grid-row: 6!important;
+    }
+
+    .cell:nth-child(20) {
+        grid-column: 2!important;
+        grid-row: 6!important;
+    }
+
+    .cell:nth-child(23) {
+        grid-column: 3!important;
+        grid-row: 6!important;
+    }
+
+    .cell:nth-child(24) {
+        grid-column: 4!important;
+        grid-row: 6!important;
+    }
+
+    .cell:nth-child(21) {
+        grid-column: 1!important;
+        grid-row: 7!important;
+    }
+
+    .cell:nth-child(22) {
+        grid-column: 1!important;
+        grid-row: 8!important;
+    }
+
+    .holidays {
+        grid-column: 2 / span 3!important;
+        grid-row: 7 / span 2!important;
+    }
+
+    .holidays img {
+        width: 100%;
+        max-width: 194px;
+        height: auto;
+    }
+
+    .icon-label {
+        width: 101%;
+        height: 101%;
+    }
+
+    .modal-content {
+        max-width: 70vw!important;
+        max-height: 70vw!important;
+    }
+}

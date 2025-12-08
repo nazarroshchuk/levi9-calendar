@@ -5,11 +5,455 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz@0,9..40;1,9..40&family=Geologica:wght@700&display=swap"
+          rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <title>Levi9 calendar</title>
 </head>
+<style>
+    img,
+    picture,
+    svg {
+        max-width: 100%;
+        display: block;
+    }
+
+    :root {
+        --background: #11112F;
+        --holly-background: #D1DBFB;
+        --cell-size: 129px;
+        --gap: 0;
+        --reveal-duration: 450ms;
+        --text-blue: #0D40C4;
+        --text-black: #090909;
+    }
+
+    body {
+        background: url('assets/images/background.jpg') no-repeat;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .calendar {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(var(--cell-size), 1fr));
+        gap: var(--gap);
+        max-width: 903px;
+        margin: auto auto;
+    }
+
+    .cell {
+        position: relative;
+        width: var(--cell-size);
+        height: var(--cell-size);
+        overflow: hidden;
+    }
+
+    .fourth-cell {
+        width: 100%;
+        grid-column: span 2;
+    }
+
+    .thirteen-cell {
+        height: 100%;
+        grid-row: span 2;
+    }
+
+    .fifteen-cell {
+        width: 100%;
+        height: 100%;
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    .twenty-cell {
+        width: 100%;
+        grid-column: 1;
+        grid-row: 5;
+    }
+
+    .twenty-first-cell {
+        grid-column: 2;
+        grid-row: 4;
+    }
+
+    .twenty-two-cell {
+        width: 100%;
+        grid-column: 2;
+        grid-row: 5;
+    }
+
+    .twenty-three-cell {
+        width: 100%;
+        grid-column: 3;
+        grid-row: 4;
+    }
+
+    .twenty-four-cell {
+        width: 100%;
+        grid-column: 3;
+        grid-row: 5;
+    }
+
+    .eighteen-cell {
+        width: 100%;
+        height: 100%;
+        grid-column: span 2;
+    }
+
+    .toggle {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 10px;
+        height: 10px;
+        opacity: 1;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    .icon-wrap {
+        position: relative;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform var(--reveal-duration) cubic-bezier(.2, .9, .2, 1), box-shadow var(--reveal-duration);
+        will-change: transform;
+    }
+
+    .icon {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+    }
+
+    .photo {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        inset: 0;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+    }
+
+    .icon-label {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 101%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform var(--reveal-duration) cubic-bezier(.2, .9, .2, 1), opacity var(--reveal-duration);
+        will-change: transform, opacity;
+        z-index: 2;
+        opacity: 1;
+    }
+
+    .photo-label {
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+        transition: opacity var(--reveal-duration) cubic-bezier(.2, .9, .2, 1), transform var(--reveal-duration) cubic-bezier(.2, .9, .2, 1);
+        z-index: 3;
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    /*!* Toggle states - one way transition only *!*/
+    .toggle:checked ~ .icon-label {
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+
+    .toggle:checked ~ .photo-label {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Directional slide animations - one way only */
+    .slide-right .toggle:checked ~ .icon-label,
+    .slide-right .toggle:checked ~ .photo-label {
+        transform: translateX(100%);
+    }
+
+    .holidays {
+        background-color: var(--holly-background);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-column: span 4;
+        grid-row: span 2;
+    }
+
+    .holidays img {
+        margin: 0 auto;
+    }
+
+    /* Modal */
+    .modal-toggle {
+        position: absolute;
+        left: -9999px;
+        opacity: 0;
+    }
+
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        pointer-events: none;
+    }
+
+    /* Show modal when modal-toggle is checked */
+    .modal-toggle:checked ~ .modal {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+
+    .modal-backdrop {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    .modal-content {
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: relative;
+        width: 100%;
+        max-width: 65vw;
+        max-height: 60vh;
+        background: white;
+        overflow: hidden;
+        transform: scale(0.8);
+        transition: transform 0.3s ease;
+        aspect-ratio: 2/1;
+    }
+
+    .modal-content.photo-only {
+        max-width: 60vh;
+        max-height: 60vh;
+        aspect-ratio: 1/1;
+    }
+
+    .modal-photo-container {
+        aspect-ratio: 1/1;
+        position: relative;
+        flex-shrink: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: hidden;
+    }
+
+    .modal-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .modal-text {
+        padding: 56px;
+        flex-basis: auto;
+    }
+
+    .modal-text h2 {
+        margin-top: 0;
+        margin-bottom: 50px;
+        font-size: 56px;
+        color: var(--text-blue);
+        font-family: Geologica, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .modal-text h4 {
+        font-weight: 700;
+        font-family: Geologica, sans-serif;
+        font-size: 30px;
+        color: var(--text-black);
+    }
+
+    .modal-text p {
+        font-family: "DM Sans", sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .modal-toggle:checked ~ .modal .modal-content {
+        transform: scale(1);
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 28px;
+        color: var(--background);
+        cursor: pointer;
+        z-index: 1001;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+    }
+
+    .modal-close:hover {
+        color: calc(var(--background) - 20%);
+    }
+
+    /* Responsive image for day 4 - switch to square image on mobile */
+    @media (max-width: 1023px) {
+        .fourth-cell .icon {
+            content: url('assets/tiles/square-day-4.jpg');
+        }
+    }
+
+    @media (max-width: 1024px) {
+        :root {
+            --cell-size: 92px!important;
+        }
+
+        .calendar {
+            display: grid;
+            gap: var(--gap);
+            margin: auto auto;
+            padding: 0 10px;
+        }
+
+        .calendar {
+            grid-template-columns: repeat(4, minmax(var(--cell-size), 1fr))!important;
+            grid-template-rows: repeat(8, minmax(var(--cell-size), 1fr))!important;!important ;
+        }
+
+        .cell {
+
+        }
+
+        .cell:nth-child(4) {
+            grid-column: span 1!important;
+        }
+
+        .cell:nth-child(13) {
+            grid-row: 4 / span 2!important;
+            grid-column: 1!important;
+        }
+
+        .cell:nth-child(14) {
+            grid-column: 2!important;
+            grid-row: 4!important;
+        }
+
+        .cell:nth-child(15) {
+            grid-column: 2!important;
+            grid-row: 5!important;
+        }
+
+        .cell:nth-child(16) {
+            grid-column: 3!important;
+            grid-row: 4!important;
+        }
+
+        .cell:nth-child(17) {
+            grid-column: 4!important;
+            grid-row: 4!important;
+        }
+
+        .cell:nth-child(18) {
+            grid-column: 3 / span 2!important;
+            grid-row: 5!important;
+        }
+
+        .cell:nth-child(19) {
+            grid-column: 1!important;
+            grid-row: 6!important;
+        }
+
+        .cell:nth-child(20) {
+            grid-column: 2!important;
+            grid-row: 6!important;
+        }
+
+        .cell:nth-child(23) {
+            grid-column: 3!important;
+            grid-row: 6!important;
+        }
+
+        .cell:nth-child(24) {
+            grid-column: 4!important;
+            grid-row: 6!important;
+        }
+
+        .cell:nth-child(21) {
+            grid-column: 1!important;
+            grid-row: 7!important;
+        }
+
+        .cell:nth-child(22) {
+            grid-column: 1!important;
+            grid-row: 8!important;
+        }
+
+        .holidays {
+            grid-column: 2 / span 3!important;
+            grid-row: 7 / span 2!important;
+        }
+
+        .holidays img {
+            width: 100%;
+            max-width: 194px;
+            height: auto;
+        }
+
+        .icon-label {
+            width: 101%;
+            height: 101%;
+        }
+
+        .modal-content {
+            max-width: 70vw!important;
+            max-height: 70vw!important;
+        }
+    }
+</style>
 <body>
 <main>
     <section class="calendar">
@@ -18,6 +462,64 @@
         </div>
     </section>
 </main>
-<script src="scripts/script.js" async></script>
+<script async>
+    function createCell(dayNumber, additionalClass = '') {
+        const cellClass = additionalClass ? `cell slide-left ${additionalClass}` : 'cell slide-left';
+        const modalImageName = dayNumber === 4 || dayNumber === 18 ? `frame-${dayNumber}.png` : `day-${dayNumber}.jpg`;
+
+        const modalPhoto = `
+                <div class="modal">
+                    <label for="c${dayNumber}-modal" class="modal-backdrop"></label>
+                    <div class="modal-content photo-only">
+                        <label for="c${dayNumber}-modal" class="modal-close">&times;</label>
+                        <div class="modal-photo-container">
+                            <img class="modal-photo" src="assets/images/${modalImageName}" alt="Fhoto for ${dayNumber} day" loading="lazy" />
+                        </div>
+                    </div>
+                </div>
+                        `;
+
+        return `
+        <div class="${cellClass}">
+            <input id="c${dayNumber}" type="checkbox" class="toggle" />
+            <input id="c${dayNumber}-modal" type="checkbox" class="modal-toggle" />
+            <!-- Icon label (visible when unchecked) -->
+            <label for="c${dayNumber}" class="icon-wrap icon-label">
+                <img
+                    class="icon"
+                    src="assets/tiles/day-${dayNumber}.jpg"
+                    alt="Day ${dayNumber} icon"
+                    loading="lazy"
+               >
+            </label>
+            <!-- Image label (visible when checked) - opens modal when clicked -->
+            <label for="c${dayNumber}-modal" class="photo-wrap photo-label">
+                <img class="photo" src="assets/images/day-${dayNumber}.jpg" alt="Photo for ${dayNumber} day" loading="lazy" />
+            </label>
+            <!-- Modal -->
+            ${modalPhoto}
+        </div>
+    `;
+    }
+
+    const calendar = document.querySelector('.holidays');
+    const specialClasses = {
+        4: 'fourth-cell',
+        13: 'thirteen-cell',
+        15: 'fifteen-cell',
+        18: 'eighteen-cell',
+        20: 'twenty-cell',
+        21: 'twenty-first-cell',
+        22: 'twenty-two-cell',
+        23: 'twenty-three-cell',
+        24: 'twenty-four-cell'
+    };
+
+    for (let i = 1; i <= 24; i++) {
+        const additionalClass = specialClasses[i] || '';
+        calendar.insertAdjacentHTML('beforebegin', createCell(i, additionalClass));
+    }
+
+</script>
 </body>
 </html>

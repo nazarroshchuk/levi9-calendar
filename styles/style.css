@@ -173,23 +173,6 @@ main {
     transform: translateX(100%);
 }
 
-/*.slide-left .toggle:checked ~ .icon-label {*/
-/*    transform: translateX(-110%);*/
-/*}*/
-
-/*.slide-down .toggle:checked ~ .icon-label {*/
-/*    transform: translateY(110%);*/
-/*}*/
-
-/*.slide-up .toggle:checked ~ .icon-label{*/
-/*    transform: translateY(-110%);*/
-/*}*/
-/*.slide-up .toggle:checked ~ .photo-label {*/
-/*    transform: translateY(0);*/
-/*    opacity: 1;*/
-/*    pointer-events: auto;*/
-/*}*/
-
 .holidays {
     background-color: var(--holly-background);
     padding: 43px 0 35px;

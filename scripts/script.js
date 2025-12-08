@@ -26,7 +26,12 @@ function createCell(dayNumber, additionalClass = '') {
                     <div class="modal-content photo-only">
                         <label for="c${dayNumber}-modal" class="modal-close">&times;</label>
                         <div class="modal-photo-container">
-                            <img class="modal-photo" src="assets/images/${modalImageName}" alt="Фото для дня ${dayNumber}" loading="lazy" />
+                            <img 
+                                class="modal-photo" 
+                                src="assets/images/${modalImageName}" 
+                                alt="Photo for ${dayNumber} day" 
+                                loading="lazy" 
+                            />
                         </div> 
                     </div>
                 </div>
@@ -38,7 +43,14 @@ function createCell(dayNumber, additionalClass = '') {
             <input id="c${dayNumber}-modal" type="checkbox" class="modal-toggle" />
             <!-- Icon label (visible when unchecked) -->
             <label for="c${dayNumber}" class="icon-wrap icon-label">
-                <img class="icon" src="assets/tiles/day-${dayNumber}.jpg" alt="Day ${dayNumber} icon" width="129" height="129">
+                <img 
+                    class="icon"
+                    ${dayNumber === 4 ? `srcset="assets/images/square-${modalImageName}.jpg 1023w, assets/images/${modalImageName}.jpg 1024w"` : ''}
+                    ${dayNumber === 4 ? `sizes="(max-width: 1024px) 1023px, 1024px"` : ''}
+                    src="assets/tiles/day-${dayNumber}.jpg" 
+                    alt="Day ${dayNumber} icon" 
+                    loading="lazy"
+               >
             </label>
             <!-- Image label (visible when checked) - opens modal when clicked -->
             <label for="c${dayNumber}-modal" class="photo-wrap photo-label">
