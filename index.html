@@ -340,12 +340,7 @@
         color: calc(var(--background) - 20%);
     }
 
-    /* Responsive image for day 4 - switch to square image on mobile */
-    @media (max-width: 1023px) {
-        .fourth-cell .icon {
-            content: url('assets/tiles/square-day-4.jpg');
-        }
-    }
+
 
     @media (max-width: 1024px) {
         :root {
@@ -451,6 +446,13 @@
         .modal-content {
             max-width: 70vw!important;
             max-height: 70vw!important;
+        }
+    }
+
+    /* Responsive image for day 4 - switch to square image on mobile */
+    @media (max-width: 1023px) {
+        .fourth-cell .icon {
+            content: url('assets/tiles/square-day-4.jpg');
         }
     }
 </style>
